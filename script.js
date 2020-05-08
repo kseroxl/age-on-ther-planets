@@ -93,7 +93,7 @@ smallCircles.forEach((circle, i) => {
     mainPlanet.innerText =
       e.target.id.charAt(0).toUpperCase() + e.target.id.slice(1);
     resultHeader.innerText = "";
-    document.querySelector(`#${circle.id}-mouth`).src = "icons/mouth7.svg";
+    document.querySelector(`#${circle.id}-mouth`).src = "/icons/mouth7.svg";
   });
 
   circle.addEventListener("mouseleave", (e) => {
