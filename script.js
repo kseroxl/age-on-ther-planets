@@ -99,9 +99,9 @@ smallCircles.forEach((circle, i) => {
   circle.addEventListener("mouseleave", (e) => {
     console.log(mouthMap);
     let src = mouthMap.get(`${circle.id}-mouth`);
-    document.querySelector(`#${circle.id}-mouth`).src =
-      "." + src.slice(src.indexOf("/icons"));
-    console.log(src.slice(src.indexOf("/icons")));
+    document.querySelector(`#${circle.id}-mouth`).src = src.slice(
+      src.indexOf("icons")
+    );
   });
 
   circle.addEventListener("click", (e) => {
