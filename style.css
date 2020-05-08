@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  padding-top: 5%;
+
+  background-image: url(./bgSmall.jpg);
+  background-repeat: repeat;
+  overflow: hidden;
+  color: white;
+
+  font-weight: 600;
+  font-family: "Amatic SC", cursive;
+  text-align: center;
+}
+h1 {
+  letter-spacing: 1px;
+  font-size: 2.5rem;
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
+    0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+  color: #fff6a9;
+  animation: blink 6s infinite;
+}
+
+@keyframes blink {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    /*     color: #fccaff;
+      text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
+        0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
+      0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+  }
+}
+
+h2 {
+  font-size: 3rem;
+  color: rgb(243, 162, 40);
+  margin-top: 100px;
+}
+
+.container {
+  position: relative;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 60vh;
+  height: 60vh;
+
+  border: 2px solid rgb(235, 139, 14);
+  border-radius: 50%;
+}
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.planet span {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+}
+.planet:hover {
+  transform: scale(1.1);
+}
+.planet span:hover {
+  box-shadow: 0 0 65px -20px rgba(255, 189, 3, 0.8),
+    -14px -15px 40px -10px rgba(255, 238, 191, 0.23);
+}
+#result {
+  position: absolute;
+  transform: translate(-50%);
+  bottom: 25%;
+  left: 50%;
+}
+#age-input {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#age-input input {
+  width: 10vw;
+  border: 1px solid rgb(235, 139, 14);
+  border-radius: 10px;
+  padding: 10px 15px;
+  outline: none;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    width: 250px;
+    height: 250px;
+  }
+}
