@@ -122,11 +122,28 @@ h2 {
     width: 300px;
     height: 300px;
   }
+  #age-input input {
+    width: 100px;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-top: 50px;
+  }
+  #result {
+    bottom: 20%;
+  }
 }
 
 @media only screen and (max-width: 400px) {
   .container {
+    top: 30%;
     width: 250px;
     height: 250px;
+  }
+  #age-input input {
+    width: 100px;
+  }
+  h2 {
+    font-size: 1.5rem;
   }
 }

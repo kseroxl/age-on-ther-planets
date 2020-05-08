@@ -19,17 +19,6 @@ const resultHeader = document.querySelector("#result");
 const SECONDS_IN_YEAR = 31557600;
 let result;
 
-window.addEventListener(
-  "resize",
-  function (event) {
-    if (window.innerWidth < 600 || window.innerWidth < 400) {
-      radius = document.querySelector(".container").offsetWidth / 2;
-      smallRadius = smallCircles[0].offsetWidth / 2;
-    }
-  },
-  false
-);
-
 function setSize() {
   const angle = [
     0,
@@ -42,6 +31,8 @@ function setSize() {
     7 * (Math.PI / 4),
     2 * Math.PI,
   ];
+  radius = document.querySelector(".container").offsetWidth / 2;
+  smallRadius = smallCircles[0].offsetWidth / 2;
   smallCircles.forEach((circle, i) => {
     circle.style.left =
       radius + Math.round(radius * Math.cos(angle[i])) - smallRadius + "px";
@@ -49,6 +40,8 @@ function setSize() {
       radius + Math.round(radius * Math.sin(angle[i])) - smallRadius + "px";
   });
 }
+
+window.addEventListener("resize", setSize, false);
 
 const getAge = () => {
   const planet = mainPlanet.textContent;
@@ -81,6 +74,9 @@ smallCircles.forEach((circle, i) => {
   circle.addEventListener("mouseenter", (e) => {
     mainPlanet.innerText =
       e.target.id.charAt(0).toUpperCase() + e.target.id.slice(1);
+    resultHeader.innerText = "";
+  });
+  circle.addEventListener("click", (e) => {
     getAge();
   });
 });
