@@ -80,7 +80,7 @@ h2 {
   transition: 0.3s;
   outline: none;
 }
-.planet span {
+.planet span.shadow {
   position: absolute;
   top: 53%;
   left: 50%;
@@ -92,7 +92,7 @@ h2 {
 .planet:hover {
   transform: scale(1.1);
 }
-.planet span:hover {
+.planet spanshadow:hover {
   box-shadow: 0 0 65px -20px rgba(255, 189, 3, 0.8),
     -14px -15px 40px -10px rgba(255, 238, 191, 0.23);
 }
@@ -116,6 +116,44 @@ h2 {
   padding: 10px 15px;
   outline: none;
   margin-right: 10px;
+}
+
+.eyes {
+  position: relative;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.eye {
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+}
+.eye::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  top: 20%;
+  left: 10%;
+}
+.mouth {
+  width: 70px;
+  height: 50px;
+
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media only screen and (max-width: 600px) {

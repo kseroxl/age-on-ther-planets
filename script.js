@@ -15,6 +15,12 @@ let radius = document.querySelector(".container").offsetWidth / 2;
 let smallRadius = smallCircles[0].offsetWidth / 2;
 const mainPlanet = document.querySelector("#main-planet");
 const resultHeader = document.querySelector("#result");
+const mouths = document.querySelectorAll(".mouth");
+const mouthMap = new Map();
+
+[...mouths].forEach((el) => {
+  mouthMap.set(el.id, el.src);
+});
 
 const SECONDS_IN_YEAR = 31557600;
 let result;
@@ -42,6 +48,18 @@ function setSize() {
 }
 
 window.addEventListener("resize", setSize, false);
+
+document.querySelector("body").addEventListener("mousemove", moveEye);
+function moveEye() {
+  let eye = document.querySelectorAll(".eye");
+  eye.forEach((oneEye) => {
+    let x = oneEye.getBoundingClientRect().left + oneEye.clientWidth / 2;
+    let y = oneEye.getBoundingClientRect().top + oneEye.clientHeight / 2;
+    let radian = Math.atan2(event.pageX - x, event.pageY - y);
+    let rot = radian * (180 / Math.PI) * -1 + 270;
+    oneEye.style.transform = "rotate(" + rot + "deg)";
+  });
+}
 
 const getAge = () => {
   const planet = mainPlanet.textContent;
@@ -75,7 +93,16 @@ smallCircles.forEach((circle, i) => {
     mainPlanet.innerText =
       e.target.id.charAt(0).toUpperCase() + e.target.id.slice(1);
     resultHeader.innerText = "";
+    document.querySelector(`#${circle.id}-mouth`).src = "icons/mouth7.svg";
   });
+
+  circle.addEventListener("mouseleave", (e) => {
+    let src = mouthMap.get(`${circle.id}-mouth`);
+    document.querySelector(`#${circle.id}-mouth`).src = src.slice(
+      src.indexOf("/icons")
+    );
+  });
+
   circle.addEventListener("click", (e) => {
     getAge();
   });
